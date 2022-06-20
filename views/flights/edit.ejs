@@ -24,7 +24,7 @@
     <label for="flight-no">Flight Number:</label>
     <input type="number" name="flightNo" value="<%= flight.flightNo %>" id="flight-no">
     <label for="departs">Departs:</label>
-    <input type="datetime-local" name="departs" value="<%= flight.departs %>" id="departs">
+    <input type="datetime-local" name="departs" value="<%= flight.departs.toISOString().slice(0, 16) %>" id="departs">
     <button type="submit">Update Flight</button>
   </form>
 </main>
