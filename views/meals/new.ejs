@@ -1,0 +1,18 @@
+<%- include('../partials/header') %>
+<link rel="stylesheet" href="/stylesheets/meals/new.css">
+<%- include('../partials/nav') %>
+<main>
+  <h1><%= title %></h1>
+  <label for="meal-options">Meal Options: </label>
+  <select id="meal-options">
+    <% meals.forEach(function(meal) { %>
+      <option><%= meal.name %> </option>
+    <% }) %> 
+  </select>
+  <form id="add-meal-form" action="/meals" method="POST">
+    <label for="meal-input">Enter Meal: </label>
+    <input autocomplete="off" type="text" name="name" id="meal-input">
+    <button type="submit">Add Meal</button>
+  </form>
+</main>
+<%- include('../partials/footer') %> 
