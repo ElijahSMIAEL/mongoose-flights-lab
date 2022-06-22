@@ -95,6 +95,21 @@ function update(req, res) {
   })
 }
 
+function createTickets(req, res) {
+  Flight.findById(req.params.id)
+  .then(flight => {
+    flight.tickets.push(req.body)
+    flight.save()
+    .then(() => {
+      res.redirect(`/flights/${flight._id}`)
+    })
+  })
+  .catch(error => {
+    console.log(error)
+    res.redirect('/')
+  })
+}
+
 export {
   newFlight as new,
   create,
@@ -103,4 +118,5 @@ export {
   show,
   edit,
   update,
+  createTickets,
 }
